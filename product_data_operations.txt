@@ -1,0 +1,55 @@
+CREATE TABLE products (
+  product_id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  productName TEXT NOT NULL,
+  price REAL NOT NULL,
+  stock INTEGER DEFAULT 0,
+  category TEXT
+);
+
+
+-- Insert products
+INSERT INTO products (productName, price, stock, category) VALUES
+('Laptop', 999.99, 10, 'Electronics'),
+('Smartphone', 499.99, NULL, 'Electronics'),
+('Desk Chair', 89.99, 25, 'Furniture'),
+('Coffee Maker', 29.99, 0, 'Appliances'),
+('Notebook', 2.99, 100, NULL),
+('Pen Set', 5.99, 120, 'Stationery'),
+('Headphones', 49.99, 0, 'Electronics'), 
+('Whiteboard', 79.00, 8, 'Office Supplies'),
+('Gaming Chair', 249.99, 12, 'Furniture'),
+('Backpack', 39.95, NULL, NULL);
+
+UPDATE products
+SET stock = 50
+WHERE stock IS NULL;
+
+UPDATE products
+SET category = NULL
+WHERE product_id = 3;
+
+DELETE FROM products
+WHERE product_id = 4;
+
+SELECT * FROM products;
+
+
+**Query #1**
+
+    SELECT * FROM products;
+
+| product_id | productName  | price  | stock | category        |
+| ---------- | ------------ | ------ | ----- | --------------- |
+| 1          | Laptop       | 999.99 | 10    | Electronics     |
+| 2          | Smartphone   | 499.99 | 50    | Electronics     |
+| 3          | Desk Chair   | 89.99  | 25    |                 |
+| 5          | Notebook     | 2.99   | 100   |                 |
+| 6          | Pen Set      | 5.99   | 120   | Stationery      |
+| 7          | Headphones   | 49.99  | 0     | Electronics     |
+| 8          | Whiteboard   | 79     | 8     | Office Supplies |
+| 9          | Gaming Chair | 249.99 | 12    | Furniture       |
+| 10         | Backpack     | 39.95  | 50    |                 |
+
+---
+
+[View on DB Fiddle](https://www.db-fiddle.com/f/igX92hbuXjN9HDtQuHFp9W/0)
